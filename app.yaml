@@ -2,7 +2,7 @@ runtime: python27
 api_version: 1
 threadsafe: yes
 service: ga-tracker
-version: 2
+
 
 handlers:
 - url: /tasks/process_queue
