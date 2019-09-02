@@ -33,7 +33,7 @@ class BQView():
         sql_template = self.sessions_vw
         view_query = sql_template.format(bqparams.project_id, bqparams.dataset_id, bqparams.table_id)
 
-        view = {'tableReference': table_ref, 'view': {'query': view_query}}
+        view = {'tableReference': table_ref, 'view': {'query': view_query,'useLegacySql':'false' }}
         try:
             view = self.bigquery.tables().update(
                 body=view, datasetId=bqparams.dataset_id, projectId=bqparams.project_id
