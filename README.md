@@ -57,3 +57,5 @@ If you don't see your `pull-queue` queue in the Cloud Tasks underneath Pull queu
 ```
 gcould app deploy queue.yaml --project [your-project]
 ```
+https://ga-tracker-dot-denmak-clickstream.appspot.com/collect?v=1&_v=j79&a=1540692454&t=pageview&_s=1&dl=https%3A%2F%2Fxdgt-250907.appspot.com%2F&ul=en-us&de=UTF-8&dt=xDgt&sd=24-bit&sr=375x667&vp=375x667&je=0&_u=QACAAEAB~&jid=&gjid=&cid=1528105848.1567262160&tid=UA-146451680-1&_gid=536374575.1567262160&gtm=2wg8l2NC9H3HS&z=1399958599&cd1=1528105848.1567262160
+https://xdgt-250907.appspot.com/http%D1%8B://ga-tracker.denmak-clickstream.appspot.com/collect?v=1&_v=j79&a=1540692454&t=pageview&_s=1&dl=https%3A%2F%2Fxdgt-250907.appspot.com%2F&ul=en-us&de=UTF-8&dt=xDgt&sd=24-bit&sr=375x667&vp=375x667&je=0&_u=QACAAEAB~&jid=&gjid=&cid=1528105848.1567262160&tid=UA-146451680-1&_gid=536374575.1567262160&gtm=2wg8l2NC9H3HS&z=1399958599&cd1=1528105848.1567262160

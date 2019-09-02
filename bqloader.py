@@ -4,9 +4,9 @@ from apiclient import discovery
 import logging
 
 class BQLoader():
-    project_id = ''
-    dataset_id = 'test'
-    table_id = 'gadatapy4'
+    project_id = 'denmak-clickstream'
+    dataset_id = 'clickstream'
+    table_id = 'rawgaevents'
 
     table_schema= [
         {
@@ -207,7 +207,8 @@ class BQLoader():
         table_ref = {'tableId': self.table_id,
                      'datasetId': self.dataset_id,
                      'projectId': self.project_id}
-        table = {'tableReference': table_ref, 'schema':{'fields':self.table_schema}}
+        table = {'tableReference': table_ref, 'schema': {'fields':self.table_schema},
+                 'timePartitioning': {'type': 'DAY'}}
 
         table = self.bigquery.tables().insert(
             body=table, datasetId=self.dataset_id, projectId=self.project_id).execute()

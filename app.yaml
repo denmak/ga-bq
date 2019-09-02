@@ -12,6 +12,10 @@ handlers:
   script: create_bq_table.app
   login: admin
 
+- url: /tasks/create_bq_view
+  script: create_bq_view.app
+  login: admin
+
 - url: /js
   static_dir: js
 
