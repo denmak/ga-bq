@@ -34,10 +34,14 @@ class BQView():
         view_query = sql_template.format(bqparams.project_id, bqparams.dataset_id, bqparams.table_id)
 
         view = {'tableReference': table_ref, 'view': {'query': view_query}}
+        try:
+            view = self.bigquery.tables().update(
+                body=view, datasetId=bqparams.dataset_id, projectId=bqparams.project_id
+                , tableId=bqparams.view_id).execute()
+        except:
+            view = self.bigquery.tables().insert(
+                body=view, datasetId=bqparams.dataset_id, projectId=bqparams.project_id).execute()
 
-        view = self.bigquery.tables().update(
-            body=view, datasetId=bqparams.dataset_id, projectId=bqparams.project_id
-            , tableId=bqparams.view_id).execute()
         logging.info(view)
 
     def init_view(self):
