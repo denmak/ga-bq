@@ -26,16 +26,17 @@ class BQView():
     # shared_dataset_ref = client.dataset('my_shared_dataset')
 
     def create_session_vw(self):
-        view_ref = self.bigquery.shared_dataset_ref.table("sessions_vw")
-        view = self.bigquery.Table(view_ref)
+        table_ref = {'tableId': bqparams.view_id,
+                     'datasetId': bqparams.dataset_id,
+                     'projectId': bqparams.project_id}
+
         sql_template = self.sessions_vw
-        view.view_query = sql_template.format(bqparams.project_id, bqparams.dataset_id, bqparams.table_id)
-        try:
-            view = self.bigquery.update_table(view, ["view_query"])
-            logging.info('update session_vw')
-        except:
-            view = self.bigquery.create_table(view)  # API request
-            logging.info('create session_vw')
+        view_query = sql_template.format(bqparams.project_id, bqparams.dataset_id, bqparams.table_id)
+
+        view = {'tableReference': table_ref, 'view': {'query': view_query}}
+
+        view = self.bigquery.tables().update(
+            body=view, datasetId=bqparams.dataset_id, projectId=bqparams.project_id).execute()
         logging.info(view)
 
     def init_view(self):
