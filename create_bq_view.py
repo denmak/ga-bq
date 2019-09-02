@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 
 import webapp2
-from bqloader import BQLoader
+from bqviewinit import BQView
 
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        bq_loader = BQLoader()
-        bq_loader.create_table()
+        bq_view = BQView()
+        bq_view.init_view()
 
         self.response.write('ok')
 
@@ -15,5 +15,5 @@ class MainHandler(webapp2.RequestHandler):
 
 
 app = webapp2.WSGIApplication([
-    ('/tasks/create_bq_table', MainHandler)
+    ('/tasks/create_bq_view', MainHandler)
 ], debug=True)

@@ -37,3 +37,6 @@ class BQView():
             view = self.bigquery.create_table(view)  # API request
             logging.info('create session_vw')
         logging.info(view)
+
+    def init_view(self):
+         self.create_session_vw()
