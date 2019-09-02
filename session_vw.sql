@@ -1,4 +1,4 @@
--- Mapping every event to its session
+-- Mapping every event to its session version 1
 SELECT
       part
       ,TIMESTAMP_SECONDS(occurred_at) as ts
