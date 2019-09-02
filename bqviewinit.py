@@ -36,7 +36,8 @@ class BQView():
         view = {'tableReference': table_ref, 'view': {'query': view_query}}
 
         view = self.bigquery.tables().update(
-            body=view, datasetId=bqparams.dataset_id, projectId=bqparams.project_id).execute()
+            body=view, datasetId=bqparams.dataset_id, projectId=bqparams.project_id
+            , tableId=bqparams.view_id).execute()
         logging.info(view)
 
     def init_view(self):
